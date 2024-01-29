@@ -1,0 +1,158 @@
+1. Assignment on Selection in Python - Level 2
+
+ #lex_auth_012693780491968512136
+
+def make_amount(rupees_to_make,no_of_five,no_of_one):
+    five_needed=0
+    one_needed=0
+    
+    if(no_of_five < 0 and no_of_one < 0):
+       print(-1)
+    else:
+        while(rupees_to_make >= 5):
+          rupees_to_make -= 5
+          no_of_five -= 1
+          five_needed += 1
+          if(no_of_five <= 0):
+             break
+        if(rupees_to_make <= no_of_one):
+           one_needed = rupees_to_make
+           print("No. of Five needed :", five_needed)
+           print("No. of One needed  :", one_needed)
+        else:
+           print(-1)
+      
+    #print("No. of Five needed :", five_needed)
+    #print("No. of One needed  :", one_needed)
+    #print(-1)
+
+
+#Provide different values for rupees_to_make,no_of_five,no_of_one and test your program
+make_amount(28,8,5)
+
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+
+2.def calculate_bill_amount(food_type,quantity_ordered,distance_in_kms):
+    bill_amount=0
+    #write your logic here
+    
+    delivery_charge = 0
+    if distance_in_kms > 6:
+        delivery_charge = (distance_in_kms - 6) * 6 + 9
+    elif distance_in_kms > 3:
+        delivery_charge = (distance_in_kms - 3) * 3
+    elif distance_in_kms > 0:
+        delivery_charge = 0
+    
+    if((food_type != "V" and food_type != "N") or quantity_ordered < 1 or distance_in_kms <= 0):
+        bill_amount = -1
+    else:
+        if food_type == 'V':
+           cost_per_plate = 120
+        else:
+           cost_per_plate = 150
+        bill_amount = cost_per_plate * quantity_ordered + delivery_charge
+    
+    return bill_amount
+
+#Provide different values for food_type,quantity_ordered,distance_in_kms and test your program
+bill_amount=calculate_bill_amount("N",2,7)
+print(bill_amount)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.def solve(heads,legs):
+    error_msg="No solution"
+    chicken_count=0
+    rabbit_count=0
+
+    #Start writing your code here
+    if legs % 2 != 0 or heads > legs:
+       print(error_msg)
+    else:
+       rabbit_count = int((legs - 2 * heads)/2)
+       chicken_count = int(heads - rabbit_count)
+       print(chicken_count,rabbit_count)
+    
+
+#Provide different values for heads and legs and test your program
+solve(38,131)
+
+4. Assignment on Nested Iteration - Level 2
+ 
+def digit_sum(n):
+    sum_of_digits = 0
+    while n > 0:
+        sum_of_digits += n % 10
+        n //= 10
+    return sum_of_digits   
+
+
+def find_max(num1, num2):
+    digits_sum = 0
+    # Write your logic here
+    if(num2 > num1):
+        result_list = []
+        for num in range(num1,num2+1):
+            if num%5==0 and len(str(num)) == 2 and digit_sum(num) % 3 == 0:
+               result_list.append(num)
+               
+        if not result_list:
+           return -1
+    else:
+       return -1
+       
+    return max(result_list)
+
+#Provide different values for num1 and num2 and test your program.
+max_num=find_max(10,15)
+print(max_num)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Exercise on Math Library - Level 1
+
+import math
+def find_number_of_combination(number_of_flavours):
+    total_combination=0
+    n = number_of_flavours
+    x = math.factorial(n)
+    #write your logic here
+    for r in range(n+1):
+        y = math.factorial(r)
+        z = math.factorial(n-r)
+        c = x/(y*z)
+        total_combination += c
+    return total_combination
+
+
+#Provide different values for number_of_flavours and test your program
+number_of_combination=find_number_of_combination(6)
+print(number_of_combination)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Custom Exception:-
+
+--when the exception situation occurs, then exception throw manually
+--Here we are going to create new exception class or child of exceptions
+--raise keyword is used to throw custom exception
+
+Relationship:
+	Relationship is thing that can able to make two or more classes or objects communicate with each other.
+
+types of relationship:
+	1) Aggregation(has-a):- It is one type of relationship, which has strong in relationship and we accesss each number of other class in my class
+	2) Association(used-to):- -> weak relationship and their no owner class
+					  -> accessibility to particular class method only
+	3) Composite :- It is one type of relationship which enables creating of other types and which has strong in relationship and we access each member of other class in my class. 
+	4) Inheritance :- It is (Is-A) relationship, in which one class can inherits the member of other class.
+
+	Types of Inheritance:-
+		1.Multiple
+		2.single
+		3.Multilevel or Hirerarchical
+		4.Hybrid
+
